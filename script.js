@@ -5,36 +5,44 @@ function myfunction(){
 		const wijnp=3;
 		const kleinballenp=5;
 		const grootballenp=8;
+		var prize=0;
 
-		for(i=1; i<=8; i++){
+		while(true){
 		var order = prompt("Welke bestelling wilt u toevoegen bier, fris, wijn ,snack of type stop in om de rekening te krijgen?");
 		if (order == "bier"){
 			var bier = prompt("hoeveel bier wilt u?")
-			document.write("bier:" + bier +":"+bier*bierp +'<br>')
+			var prijs = bier *bierp;
+			document.write("bier:" + bier +":"+ "\u20AC"+bier*bierp +'<br>')
+			prize+=prijs
 			
 		}//if bier
 		if (order == "fris"){
 			var fris = prompt("hoeveel fris wilt u?")
-			document.write("fris:" + fris +":"+fris*frisp+'<br>')
-			
+			var prijs = fris *frisp;
+			document.write("fris:" + fris +":"+"\u20AC"+fris*frisp+'<br>')
+			prize+=prijs
 		}//if fris
 
 		if (order == "wijn"){
 			var wijn = prompt("hoeveel glazen wijn wilt u?")
-			document.write("wijn:" + wijn+":"+wijn*wijnp +'<br>')
-			
+			var prijs = wijn *wijnp;
+			document.write("wijn:" + wijn+":"+ "\u20AC"+wijn*wijnp +'<br>')
+			prize+=prijs
 		}// if wijn
-
+		
 		if (order =="snack"){
 			var bitterbal =prompt("Hoeveel bitterballen wilt u toevoegen (8 of 16)")
 				if (bitterbal =="8"){
 					var kleinballen = prompt("hoevaak wilt u deze keuze?")
-					document.write("8x bitterballen:"+kleinballen+":"+kleinballen*kleinballenp+"<br>")
-
+					var prijs = kleinballen *kleinballenp;
+					document.write("8x bitterballen:"+kleinballen+":"+ "\u20AC"+kleinballen*kleinballenp+"<br>")
+					prize+=prijs
 			}
 			else if(bitterbal=="16"){
 				var grootballen = prompt("hoevaak wilt u deze keuze?")
-				document.write("16x bitterballen:"+grootballen+":"+grootballen*grootballenp+"<br>")
+				var prijs = grootballen *grootballenp;
+				document.write("16x bitterballen:"+grootballen+":"+ "\u20AC"+grootballen*grootballenp+"<br>")
+				prize+=prijs
 			}
 
 			else{
@@ -44,12 +52,13 @@ function myfunction(){
 			
 
 		else if (order =="stop"){
-		return bier, fris, wijn, kleinballen, grootballen;
+		document.write("totaalprijs:"+prize+"euro")
+		return false;
 
 		}
 	}//for loop
 	
 	}//myfunction
 
-var total= fris*2 + wijn*3 +bier*2.50 +kleinballen*5 +grootballen*8;
-			document.write(total);
+
+myfunction();
